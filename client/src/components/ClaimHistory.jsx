@@ -5,7 +5,7 @@ const ClaimHistory = () => {
   const [history, setHistory] = useState([]);
 
   const fetchHistory = async () => {
-    const res = await axios.get('http://localhost:5000/api/users/history');
+    const res = await axios.get('https://leaderboard-app-6bay.onrender.com/api/users/history');
     setHistory(res.data);
   };
 

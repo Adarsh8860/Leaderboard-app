@@ -8,13 +8,13 @@ const UserList = () => {
   const [msg, setMsg] = useState('');
 
   const fetchUsers = async () => {
-    const res = await axios.get('http://localhost:5000/api/users');
+    const res = await axios.get('https://leaderboard-app-6bay.onrender.com/api/users');
     setUsers(res.data);
   };
 
   const addUser = async () => {
     if (name.trim()) {
-      await axios.post('http://localhost:5000/api/users/add', { name });
+      await axios.post('https://leaderboard-app-6bay.onrender.com/api/users/add', { name });
       setName('');
       fetchUsers();
     }
@@ -22,7 +22,7 @@ const UserList = () => {
 
   const claimPoints = async () => {
     if (!selected) return;
-    const res = await axios.post('http://localhost:5000/api/users/claim', { userId: selected });
+    const res = await axios.post('https://leaderboard-app-6bay.onrender.com/api/users/claim', { userId: selected });
     setMsg(`🎉 ${res.data.user.name} got +${res.data.pointsClaimed} points!`);
     fetchUsers();
   };
